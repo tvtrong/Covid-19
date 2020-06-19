@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Covid19-GithubAPI"
+    }
+  },
+  "defaultProject": "Covid19-GithubAPI",
+  "cli": {
+    "analytics": "ea40b497-2769-4fc0-b5fc-88edf60aa512"
+  }
 }

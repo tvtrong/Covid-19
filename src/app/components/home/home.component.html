@@ -1,0 +1,47 @@
+<div class="ui dimmer" [class.active]='loading'>
+    <div class="ui text loader">Loading</div>
+</div>
+<div class="jumbotron text-center bg-white">
+    <h1 class="display-4">Corona Covid-19 Tracker</h1>
+    <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'>
+    </app-dashboard-card>
+</div>
+
+<div class="ui form">
+    <div class="inline fields">
+        <label for="fruit">Select Cases Type : </label>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input #c (click)='updateChart(c)' id="c" value="c" type="radio" name="caseType" checked="" tabindex="0" class="hidden">
+                <label for="c">Confirmed</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input #d (click)='updateChart(d)' id="d" value="d" type="radio" name="caseType" tabindex="0" class="hidden">
+                <label for="d">Deaths</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input #r (click)='updateChart(r)' id="r" value="r" type="radio" name="caseType" tabindex="0" class="hidden">
+                <label for="r">Recovered</label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui radio checkbox">
+                <input #a (click)='updateChart(a)' id="a" value="a" type="radio" name="caseType" tabindex="0" class="hidden">
+                <label for="a">Active</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <google-chart [data]="pieChart"></google-chart>
+    </div>
+    <div class="col">
+        <google-chart [data]="columnChart"></google-chart>
+    </div>
+</div>

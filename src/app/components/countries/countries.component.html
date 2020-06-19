@@ -1,0 +1,40 @@
+<div class="ui dimmer" [class.active]='loading'>
+    <div class="ui text loader">Loading</div>
+</div>
+<div class="jumbotron text-center bg-white">
+    <h1 class="display-4">Country Wice</h1>
+    <div class="mx-auto">
+        <div class="form-group col-lg-5 mx-auto">
+            <label for="c">Select Country</label>
+            <select name="" id="c" class="from-control" #input (change)='updateValues(input.value)'>
+                <option value="{{con}}" *ngFor='let con of countries'>{{con}}</option>
+            </select>
+        </div>
+    </div>
+    <app-dashboard-card [totalConfirmed]='totalConfirmed' [totalActive]='totalActive' [totalDeaths]='totalDeaths' [totalRecovered]='totalRecovered'>
+    </app-dashboard-card>
+
+    <div class="row">
+        <div class="col">
+            <table class="table badge-dark">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Date</th>
+                        <th>Cases</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let cs of selectedCountryData; index as i'>
+                        <td>{{i+1}}</td>
+                        <td>{{cs.date | date}}</td>
+                        <td>{{cs.cases}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <google-chart [data]="lineChart"></google-chart>
+        </div>
+    </div>
+</div>
